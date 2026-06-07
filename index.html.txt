@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Гибкий шаблон сайта для GitHub — вставьте свой контент куда угодно">
+  <title>Гибкий шаблон | Замените на своё</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f8fafc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.5;
+      color: #0f172a;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin: 1.5rem 0 1rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1.5rem 0;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .header-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .site-title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #0f172a, #3b82f6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      color: #334155;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    main {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 2rem 2rem 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .your-content-area {
+      margin-bottom: 2.5rem;
+      border-bottom: 2px dashed #cbd5e1;
+      padding-bottom: 2rem;
+    }
+
+    .your-content-area h2 {
+      margin-top: 0;
+      color: #0f172a;
+      display: inline-block;
+      border-left: 5px solid #3b82f6;
+      padding-left: 1rem;
+    }
+
+    .placeholder-note {
+      background: #f1f5f9;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      border: 1px solid #e2e8f0;
+      color: #1e293b;
+    }
+
+    .placeholder-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    .demo-grid-section {
+      margin-top: 2rem;
+      background: #fefce8;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid #fde047;
+    }
+
+    .demo-grid-section h3 {
+      margin-top: 0;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0 1rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #eef2ff;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      border-color: #cbd5e1;
+    }
+
+    .card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .btn-demo {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-top: 0.75rem;
+      transition: background 0.2s;
+    }
+
+    .btn-demo:hover {
+      background: #1e40af;
+      text-decoration: none;
+    }
+
+    .custom-block {
+      margin: 2rem 0;
+    }
+
+    .site-footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 2rem 0;
+      border-radius: 1rem 1rem 0 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .site-footer a {
+      color: #93c5fd;
+    }
+
+    .site-footer a:hover {
+      color: white;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+    .mt-3 {
+      margin-top: 1.5rem;
+    }
+    .mb-0 {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 0 16px;
+      }
+      main {
+        padding: 1.5rem;
+      }
+      .header-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="site-title">✨ Ваш бренд / Название</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#">Главная</a></li>
+          <li><a href="#">Проекты</a></li>
+          <li><a href="#">Блог</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="your-content-area">
+      <h2>📌 Ваш уникальный контент</h2>
+      <p>Здесь вы можете вставить <strong>абсолютно любые</strong> элементы: текст, изображения, видео, галереи, формы, карты, списки, цитаты и т.д.</p>
+      <div class="placeholder-note">
+        <p>🔹 <strong>Подсказка:</strong> Этот блок с серым фоном — просто пример. <br>
+        Вы можете удалить его полностью, заменить на свой текст или добавить свою вёрстку. <br>
+        Всё, что внутри <code>&lt;div class="your-content-area"&gt;</code> — под вашу полную власть.</p>
+        <p>👉 Например, вставьте картинку: <br>
+        <code>&lt;img src="ваша-картинка.jpg" alt="описание" style="max-width:100%; border-radius:1rem;"&gt;</code></p>
+      </div>
+      <div class="custom-block">
+        <h3>🎯 Заголовок раздела (замените)</h3>
+        <p>Этот текст — лишь иллюстрация. Вы можете написать здесь о себе, проекте, компании, вставить кнопки, карточки товаров, портфолио, таблицы…</p>
+        <a href="#" class="btn-demo" style="background:#334155;">Пример кнопки →</a>
+      </div>
+    </div>
+
+    <div class="demo-grid-section">
+      <h3>🧩 Пример гибкой сетки (удалите или адаптируйте под себя)</h3>
+      <p>Ниже показан пример карточек, чтобы вы могли увидеть, как легко строить раскладку. Если не нужно — просто удалите всю секцию и вставьте свой код.</p>
+      <div class="cards-grid">
+        <div class="card">
+          <h4>📌 Блок 1</h4>
+          <p>Ваш текст, ссылки или изображение. Замените на что угодно.</p>
+          <a href="#" class="btn-demo">Подробнее</a>
+        </div>
+        <div class="card">
+          <h4>🎨 Блок 2</h4>
+          <p>Идеально для списка преимуществ, проектов или услуг.</p>
+          <a href="#" class="btn-demo">Узнать</a>
+        </div>
+        <div class="card">
+          <h4>⚙️ Блок 3</h4>
+          <p>Легко масштабируется, меняйте количество колонок через CSS.</p>
+          <a href="#" class="btn-demo">Демо</a>
+        </div>
+      </div>
+      <p class="text-center" style="font-size:0.85rem; margin-top:0.5rem;">🌟 <strong>Совет:</strong> Вы можете убрать весь этот блок с жёлтой подложкой и создать свою сетку, встроить форму, слайдер или что угодно.</p>
+    </div>
+
+    <div style="margin-top: 2rem; padding: 1rem 0;">
+      <hr style="border: none; border-top: 2px dotted #e2e8f0; margin: 1rem 0;">
+      <h3>✏️ Ваша зона без ограничений</h3>
+      <p>Вставьте сюда галерею, таблицу, контактную форму, виджет карты, цитаты или любой другой HTML.</p>
+      <form style="background:#f8fafc; padding:1.2rem; border-radius:1rem; margin-top:1rem;">
+        <label for="name" style="font-weight:500;">Ваше имя:</label>
+        <input type="text" id="name" placeholder="Иван" style="width:100%; padding:0.5rem; margin:0.5rem 0 1rem; border-radius:0.5rem; border:1px solid #cbd5e1;">
+        <label for="message" style="font-weight:500;">Сообщение:</label>
+        <textarea id="message" rows="3" placeholder="Напишите что-нибудь..." style="width:100%; padding:0.5rem; margin:0.5rem 0 1rem; border-radius:0.5rem; border:1px solid #cbd5e1;"></textarea>
+        <button type="submit" style="background:#0f172a; color:white; border:none; padding:0.5rem 1.5rem; border-radius:2rem; cursor:pointer;">Отправить</button>
+        <p style="font-size:0.8rem; margin-top:0.5rem;">(Просто пример формы — удалите или доработайте)</p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Ваше имя / Название проекта. Все права защищены.</p>
+      <p style="margin-top:0.5rem;">
+        <a href="#">Лицензия</a> &nbsp;|&nbsp;
+        <a href="#">GitHub репозиторий</a> &nbsp;|&nbsp;
+        <a href="#">Контакты</a>
+      </p>
+      <p style="font-size:0.8rem; margin-top:1rem;">✨ Этот шаблон создан для GitHub — вы можете заменить абсолютно всё: текст, цвета, блоки, изображения.</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+  console.log("✅ Гибкий шаблон для GitHub — заменяйте контент в любых блоках. Удачи с проектом!");
+</script>
+
+</body>
+</html>
