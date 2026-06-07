@@ -3,45 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Гибкий шаблон сайта для GitHub">
-  <title>Мой Сайт | Twent3</title>
+  <title>Мой Сайт</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #f8fafc; font-family: system-ui, sans-serif; line-height: 1.5; color: #0f172a; }
-    .container { max-width: 900px; margin: 0 auto; padding: 24px; }
-    main { background: white; border-radius: 1.5rem; padding: 2rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); }
-    h1 { font-size: 2rem; margin-bottom: 1rem; }
-    .comments-container { margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #e2e8f0; }
+    /* ... твои стили оставляй как есть ... */
+    .comments-container { margin: 40px auto; max-width: 900px; padding: 20px; }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <main>
-    <h1>Привет! Это мой сайт</h1>
-    <p>Здесь можно оставлять комментарии через GitHub.</p>
-
-    <!-- Секция комментариев -->
-    <div class="comments-container">
-      <h2>💬 Обсуждение</h2>
-      <script src="https://giscus.app/client.js"
-              data-repo="Eblan23123/SiteInfo"
-              data-repo-id="R_kgDOOGj4bQ"
-              data-category="General"
-              data-category-id="DIC_kwDOOGj4bc4Cj8Y9"
-              data-mapping="pathname"
-              data-strict="0"
-              data-reactions-enabled="1"
-              data-emit-metadata="0"
-              data-input-position="bottom"
-              data-theme="dark"
-              data-lang="ru"
-              crossorigin="anonymous"
-              async>
-      </script>
-    </div>
-  </main>
-</div>
+  <div class="comments-container">
+    <script src="https://giscus.app/client.js"
+            data-repo="Eblan23123/SiteInfo"
+            data-repo-id="R_kgDOSzw6Bg"
+            data-category="General"
+            data-category-id="DIC_kwDOSzw6Bs4C-tN8"
+            data-mapping="title"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="ru"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+    </script>
+  </div>
 
 </body>
 </html>
