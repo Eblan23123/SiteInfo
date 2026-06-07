@@ -3,15 +3,254 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Мой Сайт</title>
+  <title>RobloxRank 2026 • Мега-обзор плейсов</title>
   <style>
-    /* ... твои стили оставляй как есть ... */
-    .comments-container { margin: 40px auto; max-width: 900px; padding: 20px; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(circle at 15% 25%, #0a0c17, #020108);
+      color: #edf2ff;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.5;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #121624; }
+    ::-webkit-scrollbar-thumb { background: #2c4070; border-radius: 8px; }
+
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+    }
+
+    .glow-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(0, 200, 255, 0.25);
+      padding-bottom: 1rem;
+    }
+    h1 {
+      font-size: 3rem;
+      background: linear-gradient(135deg, #e2aaff, #6bc8ff, #2affdd);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+    }
+    .badge-2026 {
+      display: inline-block;
+      background: #0d1f2c;
+      border: 1px solid #3bc9ff;
+      padding: 0.2rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-top: 8px;
+      color: #b9f2ff;
+    }
+    .sub {
+      color: #aab7e6;
+      margin-top: 8px;
+    }
+
+    .lang-switch {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .lang-btn {
+      background: #111a2c;
+      border: 1px solid #2c4870;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      color: #cbd5f0;
+      transition: 0.2s;
+    }
+    .lang-btn.active {
+      background: #0f2b42;
+      border-color: #45d6ff;
+      color: white;
+      box-shadow: 0 0 8px #45d6ff;
+    }
+    .lang-btn:hover {
+      border-color: #7cb8ff;
+    }
+
+    .section {
+      margin-bottom: 3.5rem;
+    }
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border-left: 6px solid;
+      padding-left: 1rem;
+    }
+    .excellent-title { border-left-color: #2dd4bf; }
+    .good-title { border-left-color: #60a5fa; }
+    .trash-title { border-left-color: #f97316; }
+    .awful-title { border-left-color: #ef4444; }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.5rem;
+    }
+    .game-card {
+      background: rgba(8, 12, 24, 0.8);
+      backdrop-filter: blur(8px);
+      border-radius: 1.5rem;
+      padding: 1.2rem;
+      border: 1px solid #2a3e5e;
+      transition: 0.2s;
+    }
+    .game-card:hover {
+      transform: translateY(-3px);
+      border-color: #6096ff;
+      background: rgba(12, 18, 32, 0.95);
+    }
+    .game-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #fff, #c2dcff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .game-desc {
+      color: #bcc9ec;
+      font-size: 0.85rem;
+      margin: 0.6rem 0;
+    }
+    .game-rating {
+      display: inline-block;
+      background: #0e1428;
+      padding: 0.2rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      border: 1px solid #334466;
+    }
+    .rating-excellent { background: #043535; color: #7effe6; border-color: #2dd4bf; }
+    .rating-good { background: #122b3a; color: #aae0ff; border-color: #3b82f6; }
+    .rating-trash { background: #2b1d0b; color: #ffbc6e; border-color: #f97316; }
+    .rating-awful { background: #2b0e0e; color: #ff9b9b; border-color: #ef4444; }
+
+    .contact-block {
+      background: linear-gradient(145deg, #0b1022, #01020b);
+      border-radius: 2rem;
+      padding: 2rem;
+      margin: 3rem 0 2rem;
+      text-align: center;
+      border: 1px solid #2c4368;
+    }
+    .contact-block h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ecb5ff, #7bb3ff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .contact-card {
+      background: #0f172fb3;
+      backdrop-filter: blur(4px);
+      padding: 0.8rem 1.8rem;
+      border-radius: 3rem;
+      border: 1px solid #2f4a72;
+    }
+    .contact-card a {
+      color: #d3e4ff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .contact-card:hover {
+      background: #1a2b4e;
+      border-color: #5faaff;
+    }
+
+    .comments-wrapper {
+      margin: 2rem 0;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 1.5rem;
+      padding: 1rem;
+      backdrop-filter: blur(4px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 0 0.5rem;
+      border-top: 1px solid #1f2b46;
+      color: #6e88aa;
+      font-size: 0.8rem;
+    }
+    @media (max-width: 700px) {
+      .container { padding: 1rem; }
+      h1 { font-size: 2rem; }
+      .section-title { font-size: 1.4rem; }
+    }
   </style>
 </head>
 <body>
 
-  <div class="comments-container">
+<div class="container">
+  <div class="lang-switch">
+    <button class="lang-btn active" data-lang="ru">🇷🇺 RU</button>
+    <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+  </div>
+  <div class="glow-header">
+    <h1>⚔️ ROBLOXRANK • 2026</h1>
+    <div class="badge-2026">🔥 БОЛЕЕ 200+ ПЛЕЙСОВ 🔥</div>
+    <div class="sub" id="site-sub">Шедевры, скилл-игры, донат помойки, кликер-говно, угадайки, цунами</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title excellent-title" id="excellent-title">🏆 ШЕДЕВРЫ / СКИЛЛ РЕШАЕТ</div>
+    <div class="games-grid" id="excellent-grid"></div>
+  </div>
+  <div class="section">
+    <div class="section-title good-title" id="good-title">👍 НОРМАЛЬНЫЕ / ИНТЕРЕСНЫЕ</div>
+    <div class="games-grid" id="good-grid"></div>
+  </div>
+  <div class="section">
+    <div class="section-title trash-title" id="trash-title">⚠️ ДОНАТНЫЕ ПОМОЙКИ / P2W ГОВНО</div>
+    <div class="games-grid" id="trash-grid"></div>
+  </div>
+  <div class="section">
+    <div class="section-title awful-title" id="awful-title">💩 КОНЧЕННОЕ ГОВНО / КЛИКЕРЫ / УГАДАЙ СТРАНУ / ЦУНАМИ / СИМУЛЯТОРЫ</div>
+    <div class="games-grid" id="awful-grid"></div>
+  </div>
+
+  <div class="contact-block">
+    <h3>📢 СВЯЗЬ / ПРЕДЛОЖИТЬ ПЛЕЙС</h3>
+    <div class="contact-links">
+      <div class="contact-card"><a href="https://www.youtube.com/@FlorikHorrors" target="_blank">🎬 YT_FlorikHorrors</a></div>
+      <div class="contact-card"><a href="https://t.me/DeadFlowerimdie" target="_blank">💬 @DeadFlowerimdie</a></div>
+    </div>
+  </div>
+
+  <div class="comments-wrapper">
     <script src="https://giscus.app/client.js"
             data-repo="Eblan23123/SiteInfo"
             data-repo-id="R_kgDOSzw6Bg"
@@ -22,13 +261,236 @@
             data-reactions-enabled="1"
             data-emit-metadata="0"
             data-input-position="top"
-            data-theme="preferred_color_scheme"
+            data-theme="dark_dimmed"
             data-lang="ru"
             data-loading="lazy"
             crossorigin="anonymous"
             async>
     </script>
   </div>
+  <footer>© 2026 RobloxRank • рейтинги субъективны, пиши в Telegram свои плейсы</footer>
+</div>
 
+<script>
+  // ======================== МЕГА-МАССИВЫ ИГР (РОБЛОКС ПЛЕЙСЫ) ========================
+  // ---------- ШЕДЕВРЫ / ОТЛИЧНЫЕ (excellent) ----------
+  const excellentGames = {
+    ru: [
+      { name: "Doors", desc: "Атмосферный хоррор, уникальные монстры, реиграбельность.", rating: "10/10" },
+      { name: "Deepwoken", desc: "Хардкор RPG, огромный мир, никакого доната.", rating: "9.9/10" },
+      { name: "Pressure", desc: "Подводный хоррор, кооператив, напряжение.", rating: "9.8/10" },
+      { name: "Natural Disaster Survival", desc: "Классика роблокса, веселье на годы.", rating: "9.5/10" },
+      { name: "Dress to Impress", desc: "Конкурс моды, вирус, бесплатно и стильно.", rating: "9.7/10" },
+      { name: "The Rake Remastered", desc: "Стелс-хоррор, глубокая атмосфера.", rating: "9.4/10" },
+      { name: "Venture Tales", desc: "Открытый мир RPG, квесты.", rating: "9.6/10" },
+      { name: "Pilgrammed", desc: "Пиксельная RPG, подземелья.", rating: "9.3/10" },
+      { name: "Entry Point", desc: "Стелс-шутер, сюжет как в PAYDAY.", rating: "9.5/10" },
+      { name: "Combat Warriors", desc: "ПвП с мечами/оружием, скилл решает полностью. Без доната топ.", rating: "9.7/10" },
+      { name: "Criminality", desc: "Криминальный шутер, хардкор, всё решает скилл и тактика.", rating: "9.6/10" },
+      { name: "The Strongest Battlegrounds (TSB)", desc: "Аниме-драки, баланс, скилл важнее доната.", rating: "9.4/10" },
+      { name: "WLS3 (Симулятор качка)", desc: "Имба-симулятор прокачки персонажа. Без доната можно спокойно качаться, всё честно.", rating: "9.5/10" }
+    ],
+    en: [
+      { name: "Doors", desc: "Atmospheric horror, unique monsters.", rating: "10/10" },
+      { name: "Deepwoken", desc: "Hardcore RPG, huge world, no P2W.", rating: "9.9/10" },
+      { name: "Pressure", desc: "Underwater horror, co-op, tense.", rating: "9.8/10" },
+      { name: "Natural Disaster Survival", desc: "Roblox classic, fun forever.", rating: "9.5/10" },
+      { name: "Dress to Impress", desc: "Fashion contest, free mechanics.", rating: "9.7/10" },
+      { name: "The Rake Remastered", desc: "Stealth horror, deep atmosphere.", rating: "9.4/10" },
+      { name: "Venture Tales", desc: "Open world RPG, quests.", rating: "9.6/10" },
+      { name: "Pilgrammed", desc: "Pixel RPG, dungeons.", rating: "9.3/10" },
+      { name: "Entry Point", desc: "Stealth shooter, story like PAYDAY.", rating: "9.5/10" },
+      { name: "Combat Warriors", desc: "PvP with swords/guns, skill matters. No P2W.", rating: "9.7/10" },
+      { name: "Criminality", desc: "Criminal shooter, hardcore, skill and tactics.", rating: "9.6/10" },
+      { name: "The Strongest Battlegrounds (TSB)", desc: "Anime battles, balanced, skill > P2W.", rating: "9.4/10" },
+      { name: "WLS3 (Strength Simulator)", desc: "Great grinding simulator, fair without P2W.", rating: "9.5/10" }
+    ]
+  };
+
+  // ---------- НОРМАЛЬНЫЕ / ИНТЕРЕСНЫЕ (good) ----------
+  const goodGames = {
+    ru: [
+      { name: "Brookhaven RP", desc: "Ролевая игра, донат есть, но жить можно.", rating: "7/10" },
+      { name: "BedWars", desc: "PvP стройка, скилл может перебить донат.", rating: "7.2/10" },
+      { name: "Tower Defense Simulator", desc: "Башня защита, ивенты.", rating: "7.5/10" },
+      { name: "Arsenal", desc: "Шутер с рандомным оружием, быстро.", rating: "7.8/10" },
+      { name: "Murder Mystery 2", desc: "Классика детектива, токсично но весело.", rating: "7/10" },
+      { name: "Jailbreak", desc: "Тюрьма/полиция, донат даёт бонусы, но база честная.", rating: "7.1/10" },
+      { name: "Vehicle Legends", desc: "Гонки, тачки, без VIP ок.", rating: "6.8/10" },
+      { name: "Theme Park Tycoon 2", desc: "Стройка парка, без доната норм.", rating: "7.3/10" },
+      { name: "Work at a Pizza Place", desc: "Симулятор работы, спокойно.", rating: "7/10" },
+      { name: "FNAF: Eternal Night", desc: "Интересная игра про аниматроников, но пассы бесполезны.", rating: "7.4/10" },
+      { name: "Zone 51 (Legends)", desc: "Зона 51, легендарная игра, мистика, приключения.", rating: "7.5/10" },
+      { name: "Car Crushers 2", desc: "Собирай, разбивай машины, крутая физика.", rating: "7.9/10" },
+      { name: "Granny", desc: "Хоррор про бабку, выше среднего, страшно.", rating: "7.3/10" },
+      { name: "Spider (паук плейс)", desc: "Симулятор паука, лазай, плети паутину, интересно.", rating: "7.2/10" },
+      { name: "The Joy of Creation (TJOC)", desc: "Хоррор по FNAF, неплохой, но не шедевр.", rating: "6.9/10" },
+      { name: "Royale High", desc: "Школа магии, красиво, но много доната.", rating: "6.5/10" },
+      { name: "Adopt Me!", desc: "Питомцы, детям нравится, донатная экономика.", rating: "6/10" },
+      { name: "Blox Fruits", desc: "Аниме-бой, гринд, донат ускоряет, но играбельно.", rating: "6.8/10" }
+    ],
+    en: [
+      { name: "Brookhaven RP", desc: "Roleplay, some P2W but playable.", rating: "7/10" },
+      { name: "BedWars", desc: "PvP builder, skill can counter P2W.", rating: "7.2/10" },
+      { name: "Tower Defense Simulator", desc: "Tactical TD, events.", rating: "7.5/10" },
+      { name: "Arsenal", desc: "Random weapon shooter, fast.", rating: "7.8/10" },
+      { name: "Murder Mystery 2", desc: "Classic detective, sometimes toxic.", rating: "7/10" },
+      { name: "Jailbreak", desc: "Prison/police, P2W bonuses but base fair.", rating: "7.1/10" },
+      { name: "FNAF: Eternal Night", desc: "Interesting FNAF game, passes useless.", rating: "7.4/10" },
+      { name: "Zone 51 (Legends)", desc: "Mystery adventure, legendary.", rating: "7.5/10" },
+      { name: "Car Crushers 2", desc: "Crush cars, great physics.", rating: "7.9/10" },
+      { name: "Granny", desc: "Horror with granny, above average.", rating: "7.3/10" },
+      { name: "Spider place", desc: "Spider simulator, web slinging.", rating: "7.2/10" },
+      { name: "The Joy of Creation (TJOC)", desc: "FNAF horror, decent.", rating: "6.9/10" },
+      { name: "Blox Fruits", desc: "Anime fighter, grindy, P2W but playable.", rating: "6.8/10" }
+    ]
+  };
+
+  // ---------- ДОНАТНЫЕ ПОМОЙКИ / P2W (trash) ----------
+  const trashGames = {
+    ru: [
+      { name: "Pet Simulator X", desc: "Бесконечный донат, алмазы за робуксы. Развод.", rating: "2/10" },
+      { name: "Bee Swarm Simulator", desc: "Пэй-ту-вин ускорители, гринд годами.", rating: "2.5/10" },
+      { name: "Mad City", desc: "Крылья за робуксы решают всё.", rating: "2/10" },
+      { name: "Anime Fighters Simulator", desc: "Донатная армия, боевой пропуск.", rating: "1.8/10" },
+      { name: "King Legacy", desc: "П2В мета, без доната ты ноль.", rating: "2/10" },
+      { name: "Project Slayers", desc: "Донатные клики, гринд за деньги.", rating: "2.2/10" },
+      { name: "Shindo Life", desc: "Клон, донат ускоряет, помойка.", rating: "2/10" },
+      { name: "Your Bizarre Adventure", desc: "Стенды за робуксы, баланс сломан.", rating: "2.5/10" },
+      { name: "Bloxburg", desc: "Платный вход + донат на мебель.", rating: "3/10" },
+      { name: "99 Nights in the Forest", desc: "Скучная донатная помойка, выживание за деньги.", rating: "1.5/10" },
+      { name: "Blox Fruits", desc: "Хотя играбельно, но донат решает слишком много, гриндовка.", rating: "3/10 (на грани)" }
+    ],
+    en: [
+      { name: "Pet Simulator X", desc: "Endless donate, gems for Robux. Scam.", rating: "2/10" },
+      { name: "Bee Swarm Simulator", desc: "P2W boosters, insane grind.", rating: "2.5/10" },
+      { name: "Mad City", desc: "Robux wings decide everything.", rating: "2/10" },
+      { name: "Anime Fighters Simulator", desc: "Donate army, battle pass.", rating: "1.8/10" },
+      { name: "King Legacy", desc: "P2W meta, without donate you're trash.", rating: "2/10" },
+      { name: "99 Nights in the Forest", desc: "Boring donate dump, survival for money.", rating: "1.5/10" },
+      { name: "Blox Fruits", desc: "Playable but P2W heavy, grind fest.", rating: "3/10 (borderline)" }
+    ]
+  };
+
+  // ---------- КОНЧЕННОЕ ГОВНО / КЛИКЕРЫ / УГАДАЙКИ / ЦУНАМИ (awful) ----------
+  const awfulGames = {
+    ru: [
+      { name: "Угадай страну (Guess Country)", desc: "брейнрот, донат на подсказки, конченое", rating: "0.5/10" },
+      { name: "Цунами / Tsunami survival", desc: "тупой побег от волны, донат на спасение", rating: "0.8/10" },
+      { name: "Кликер Миллионер", desc: "просто кнопка, донат на авто-клик", rating: "0.3/10" },
+      { name: "Время-кликер (Time Clicker)", desc: "таймер + кнопка, плати чтобы ускорить", rating: "0.2/10" },
+      { name: "Король времени", desc: "клон кликера с донатом на скип", rating: "0/10" },
+      { name: "Угадай флаг", desc: "донат показывает ответ, разрабы ленивые", rating: "0.7/10" },
+      { name: "Симулятор кирпича", desc: "кликай на кирпич, донат на алмазный кирпич", rating: "0.1/10" },
+      { name: "Мясной симулятор", desc: "режи мясо, донат на ножи", rating: "0.5/10" },
+      { name: "Тюремный кликер", desc: "ускоряй побег за робуксы", rating: "0.4/10" },
+      { name: "Rolling Simulator", desc: "ты катишься, бусты за робуксы", rating: "0.6/10" },
+      { name: "Ниндзя кликер", desc: "тапай и плати, чтобы тапать быстрее", rating: "0.3/10" },
+      { name: "Симулятор муравья", desc: "собирай ресурсы, донат на скорость", rating: "0.7/10" },
+      { name: "Ограбление банка: кликер", desc: "донат на оружие, баги, скука", rating: "0.5/10" },
+      { name: "Стань богатым за клики", desc: "клик-клик, множитель за робуксы", rating: "0.2/10" },
+      { name: "Симулятор еды", desc: "готовь бургеры, донат на авто-готовку", rating: "0.8/10" },
+      { name: "Торнадо симулятор", desc: "бегай от торнадо, донат на щит", rating: "0.9/10" },
+      { name: "Угадай число", desc: "угадай число от 1 до 10, донат на подсказку", rating: "0.3/10" },
+      { name: "Squid Game кликер", desc: "тыкай на красный свет, донат на жизнь", rating: "0.6/10" },
+      { name: "Тысяча кликов", desc: "стандартный кликер с донатными ускорителями", rating: "0.4/10" },
+      { name: "Сима-ферма", desc: "копия фермы с донатным ускорением", rating: "0.9/10" },
+      { name: "Escape Tsunami клоны", desc: "десятки копий цунами с донат-ловушками", rating: "0.5/10" },
+      { name: "Генератор денег кликер", desc: "абсолютный брейнрот", rating: "0.1/10" },
+      { name: "Симулятор камня", desc: "ты камень, кликай, донат на алмаз", rating: "0.0/10" },
+      { name: "Нажми на кнопку", desc: "нажми и получи донат-меню", rating: "0.2/10" },
+      { name: "Кликер: Космос", desc: "кликай на звезды, донат на ракету", rating: "0.3/10" },
+      { name: "Веселая ферма кликер", desc: "посадка-сбор за робуксы", rating: "0.5/10" }
+    ],
+    en: [
+      { name: "Guess Country", desc: "brainrot quiz, donate hints, crap", rating: "0.5/10" },
+      { name: "Tsunami survival", desc: "stupid wave escape, donate to survive", rating: "0.8/10" },
+      { name: "Millionaire Clicker", desc: "just a button, donate auto-clicker", rating: "0.3/10" },
+      { name: "Time Clicker", desc: "timer + button, pay to skip", rating: "0.2/10" },
+      { name: "Guess the Flag", desc: "donate shows answer, devs lazy", rating: "0.7/10" },
+      { name: "Brick Simulator", desc: "click the brick, donate diamond brick", rating: "0.1/10" },
+      { name: "Meat Simulator", desc: "cut meat, donate knives", rating: "0.5/10" },
+      { name: "Rolling Simulator", desc: "you roll, robux boosts", rating: "0.6/10" },
+      { name: "Ninja Clicker", desc: "tap and pay to tap faster", rating: "0.3/10" }
+    ]
+  };
+
+  const uiText = {
+    ru: {
+      sub: "Шедевры, скилл-игры, донат помойки, кликер-говно, угадайки, цунами",
+      excellentTitle: "🏆 ШЕДЕВРЫ / СКИЛЛ РЕШАЕТ",
+      goodTitle: "👍 НОРМАЛЬНЫЕ / ИНТЕРЕСНЫЕ",
+      trashTitle: "⚠️ ДОНАТНЫЕ ПОМОЙКИ / P2W ГОВНО",
+      awfulTitle: "💩 КОНЧЕННОЕ ГОВНО / КЛИКЕРЫ / УГАДАЙ СТРАНУ / ЦУНАМИ / СИМУЛЯТОРЫ"
+    },
+    en: {
+      sub: "Masterpieces, skill games, P2W trash, clicker garbage, guess country, tsunami",
+      excellentTitle: "🏆 EXCELLENT / SKILL MATTERS",
+      goodTitle: "👍 DECENT / INTERESTING",
+      trashTitle: "⚠️ P2W TRASH / DONATE HELL",
+      awfulTitle: "💩 AWFUL / CLICKERS / GUESS COUNTRY / TSUNAMI / SIMULATORS"
+    }
+  };
+
+  let currentLang = "ru";
+
+  function renderCategory(containerId, data, ratingType) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = "";
+    data.forEach(game => {
+      const card = document.createElement("div");
+      card.className = "game-card";
+      let ratingClass = "";
+      if (ratingType === "excellent") ratingClass = "rating-excellent";
+      else if (ratingType === "good") ratingClass = "rating-good";
+      else if (ratingType === "trash") ratingClass = "rating-trash";
+      else if (ratingType === "awful") ratingClass = "rating-awful";
+      card.innerHTML = `
+        <div class="game-title">${escapeHtml(game.name)}</div>
+        <div class="game-desc">${escapeHtml(game.desc)}</div>
+        <div class="game-rating ${ratingClass}">⭐ ${escapeHtml(game.rating)}</div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/[&<>]/g, function(m) {
+      if (m === '&') return '&amp;';
+      if (m === '<') return '&lt;';
+      if (m === '>') return '&gt;';
+      return m;
+    });
+  }
+
+  function renderAll() {
+    const lang = currentLang;
+    renderCategory("excellent-grid", excellentGames[lang] || excellentGames.ru, "excellent");
+    renderCategory("good-grid", goodGames[lang] || goodGames.ru, "good");
+    renderCategory("trash-grid", trashGames[lang] || trashGames.ru, "trash");
+    renderCategory("awful-grid", awfulGames[lang] || awfulGames.ru, "awful");
+
+    document.getElementById("site-sub").innerText = uiText[lang].sub;
+    document.getElementById("excellent-title").innerHTML = uiText[lang].excellentTitle;
+    document.getElementById("good-title").innerHTML = uiText[lang].goodTitle;
+    document.getElementById("trash-title").innerHTML = uiText[lang].trashTitle;
+    document.getElementById("awful-title").innerHTML = uiText[lang].awfulTitle;
+  }
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    renderAll();
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      if (btn.getAttribute("data-lang") === lang) btn.classList.add("active");
+      else btn.classList.remove("active");
+    });
+  }
+
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.addEventListener("click", () => setLanguage(btn.getAttribute("data-lang")));
+  });
+
+  setLanguage("ru");
+</script>
 </body>
 </html>
